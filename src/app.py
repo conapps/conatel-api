@@ -1,8 +1,8 @@
-from flask import Flask, jsonify, request, Response
+import os
 import json
+from flask import Flask, jsonify, request, Response
 
-from settings import *
-
+app = Flask(__name__)
 
 def validBookObject(book):
     if 'KeyName' in dictionaryObject:
@@ -53,4 +53,5 @@ invalidErrorMsg = {
     'message': 'a Message'
 }
 
-app.run(port=5000)
+if __name__ == "__main__":
+    app.run(port=8003)
