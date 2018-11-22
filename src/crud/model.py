@@ -29,8 +29,13 @@ class Ap(db.Model):
 
     def update_ap(_ap_mac, ap_update):
         ap_to_update = Ap.query.filter_by(ap_mac=_ap_mac).first()
-        if 'location_name' in ap_update:
-            ap_to_update.location_name = ap_update['location_name']
-        if 'has_licence' in ap_update:
-            ap_to_update.has_licence = ap_update['has_licence']
-        db.session.commit()
+        print('location_name' not in ap_update and'has_licence' not in ap_update)
+        if 'location_name' not in ap_update and 'has_licence' not in ap_update:
+            return False
+        else:
+            if 'location_name' in ap_update:
+                ap_to_update.location_name = ap_update['location_name']
+            if 'has_licence' in ap_update:
+                ap_to_update.has_licence = ap_update['has_licence']
+            db.session.commit()  
+            return True  

@@ -26,7 +26,7 @@ def get(ap_id):
 
 @ap.route('', methods=['POST'])
 def add():
-    ap_json=request.get_json()
+    ap_json = request.get_json()
     for field in required_fields:
         if field not in ap_json:
             return error(f"Field {field} is missing!"), 400
@@ -40,10 +40,13 @@ def add():
 
 @ap.route('/<ap_id>', methods=['PUT'])
 def put(ap_id):
-    ap_json=request.get_json()
+    ap_json = request.get_json()
     try:
-        Ap.update_ap(ap_id, ap_json)
-        return "", 201
+        success = Ap.update_ap(ap_id, ap_json)
+        if success:
+            return "", 201
+        else:
+            return error("Uno de los atributos no es correcto"), 400
     except Exception as e:
         return error(str(e)), 500
 
