@@ -1,0 +1,229 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "defaultTitle",
+      "description": "defaultDescription",
+      "version": "0.1"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:5000"
+      }
+    ],
+    "paths": {
+      "/aps/fd:ff:ff:ff:ff:ff": {
+        "get": {
+          "description": "Auto generated using Swagger Inspector",
+          "responses": {
+            "200": {
+              "description": "Auto generated using Swagger Inspector",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/inline_response_200"
+                  },
+                  "examples": {
+                    "0": {
+                      "value": "{\"ap_mac\":\"fd:ff:ff:ff:ff:ff\",\"has_licence\":false,\"location_name\":\"San Josefa\"}\n"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/aps": {
+        "get": {
+          "description": "Auto generated using Swagger Inspector",
+          "responses": {
+            "200": {
+              "description": "Auto generated using Swagger Inspector",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {}
+                  },
+                  "examples": {
+                    "0": {
+                      "value": "[{\"ap_mac\":\"fd:ff:ff:ff:ff:ff\",\"has_licence\":false,\"location_name\":\"San Josefa\"}]\n"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "description": "Auto generated using Swagger Inspector",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/body"
+                },
+                "examples": {
+                  "0": {
+                    "value": "{\"ap_mac\": \"ff:ff:ff:fa:ff:ff\",\"location_name\": \"test\",\"has_licence\": false}"
+                  },
+                  "1": {
+                    "value": "{\"location_name\": \"test\",\"has_licence\": false}"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Auto generated using Swagger Inspector"
+            },
+            "400": {
+              "description": "Auto generated using Swagger Inspector",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/inline_response_400"
+                  },
+                  "examples": {
+                    "0": {
+                      "value": "{\"message\":\"Field ap_mac is missing!\",\"success\":false}\n"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/aps/ff:ff:ff:fa:ff:fd": {
+        "get": {
+          "description": "Auto generated using Swagger Inspector",
+          "responses": {
+            "404": {
+              "description": "Auto generated using Swagger Inspector",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/inline_response_400"
+                  },
+                  "examples": {
+                    "0": {
+                      "value": "{\"message\":\"ap does not exist\",\"success\":false}\n"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/aps/ff:ff:ff:fa:ff:ff": {
+        "put": {
+          "description": "Auto generated using Swagger Inspector",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/body_1"
+                },
+                "examples": {
+                  "0": {
+                    "value": "{\"has_licence\": true}"
+                  },
+                  "1": {
+                    "value": "{\"haslicence\": true}"
+                  },
+                  "2": {
+                    "value": "{\"haslicence\": true}"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Auto generated using Swagger Inspector"
+            },
+            "400": {
+              "description": "Auto generated using Swagger Inspector",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/inline_response_400"
+                  },
+                  "examples": {
+                    "0": {
+                      "value": "{\"message\":\"Uno de los atributos no es correcto\",\"success\":false}\n"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "description": "Auto generated using Swagger Inspector",
+          "responses": {
+            "204": {
+              "description": "Auto generated using Swagger Inspector"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "body_1": {
+          "type": "object",
+          "properties": {
+            "has_licence": {
+              "type": "boolean"
+            },
+            "haslicence": {
+              "type": "boolean"
+            }
+          }
+        },
+        "inline_response_200": {
+          "type": "object",
+          "properties": {
+            "ap_mac": {
+              "type": "string"
+            },
+            "location_name": {
+              "type": "string"
+            },
+            "has_licence": {
+              "type": "boolean"
+            }
+          }
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "ap_mac": {
+              "type": "string"
+            },
+            "location_name": {
+              "type": "string"
+            },
+            "has_licence": {
+              "type": "boolean"
+            }
+          }
+        },
+        "inline_response_400": {
+          "type": "object",
+          "properties": {
+            "success": {
+              "type": "boolean"
+            },
+            "message": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
