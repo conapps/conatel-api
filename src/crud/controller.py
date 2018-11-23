@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 
 from src.crud.model import Ap
+from src.utils import error
 
 ap = Blueprint('aps', __name__, url_prefix='/aps')
 
@@ -58,10 +59,3 @@ def delete(ap_id):
         return "", 204
     except Exception as e:
         return error(str(e)), 500
-
-
-def error(message):
-    return jsonify({
-        'success': False,
-        'message': message
-    })

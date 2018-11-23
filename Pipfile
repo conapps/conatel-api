@@ -10,6 +10,10 @@ flask-cors = "*"
 python-dotenv = "*"
 flask-sqlalchemy = "*"
 "psycopg2-binary" = "*"
+flask-oidc = "*"
+requests = "*"
+pyjwt = "*"
+cryptography = "*"
 
 [dev-packages]
 
