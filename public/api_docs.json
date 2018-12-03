@@ -9,8 +9,8 @@
     "url" : "http://localhost:5000"
   } ],
   "tags" : [ {
-    "name" : "Authorization",
-    "description" : "Paths to grant authorization"
+    "name" : "Autenticacion",
+    "description" : "Paths to grant Autenticacion"
   }, {
     "name" : "CRUD",
     "description" : "The paths to CRUD methods"
@@ -18,7 +18,7 @@
   "paths" : {
     "/auth/login" : {
       "get" : {
-        "tags" : [ "Authorization" ],
+        "tags" : [ "Autenticacion" ],
         "description" : "Auto generated using Swagger Inspector",
         "responses" : {
           "200" : {
@@ -29,7 +29,7 @@
     },
     "/auth/token_logout" : {
       "post" : {
-        "tags" : [ "Authorization" ],
+        "tags" : [ "Autenticacion" ],
         "description" : "Auto generated using Swagger Inspector",
         "requestBody" : {
           "content" : {
@@ -266,7 +266,7 @@
     },
     "/auth/token_login" : {
       "post" : {
-        "tags" : [ "Authorization" ],
+        "tags" : [ "Autenticacion" ],
         "description" : "Auto generated using Swagger Inspector",
         "requestBody" : {
           "content" : {
@@ -327,7 +327,7 @@
     },
     "/auth/token_verify" : {
       "get" : {
-        "tags" : [ "Authorization" ],
+        "tags" : [ "Autenticacion" ],
         "description" : "Auto generated using Swagger Inspector",
         "parameters" : [ {
           "name" : "token",
@@ -361,7 +361,7 @@
     },
     "/auth/token_refresh" : {
       "post" : {
-        "tags" : [ "Authorization" ],
+        "tags" : [ "Autenticacion" ],
         "description" : "Auto generated using Swagger Inspector",
         "requestBody" : {
           "content" : {

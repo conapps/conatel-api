@@ -1,0 +1,408 @@
+openapi: 3.0.1
+info:
+  title: Example API
+  description: An example of the description of an API
+  version: '0.1'
+servers:
+  - url: 'http://localhost:5000'
+tags:
+  - name: Autenticacion
+    description: Paths to grant Autenticacion
+  - name: CRUD
+    description: The paths to CRUD methods
+paths:
+  /auth/login:
+    get:
+      tags:
+        - Autenticacion
+      description: Auto generated using Swagger Inspector
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+  /auth/token_logout:
+    post:
+      tags:
+        - Autenticacion
+      description: Auto generated using Swagger Inspector
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                refresh_token:
+                  type: string
+                username:
+                  type: string
+            examples:
+              '0':
+                value: |-
+                  {
+                      "username":"example_user"
+                  }
+              '1':
+                value: |-
+                  {
+                      "username":"example_user",
+                      "refresh_token": "asdasd"
+                  }
+              '2':
+                value: |-
+                  {
+                      "username":"example_user",
+                      "refresh_token": ""
+                  }
+      responses:
+        '204':
+          description: Auto generated using Swagger Inspector
+        '400':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+              examples:
+                '0':
+                  value: >
+                    {"message":"Field refresh_token is
+                    missing!","success":false}
+        '500':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+              examples:
+                '0':
+                  value: |
+                    {"message":"Error en logging out","success":false}
+  '/aps/{ap_mac}':
+    put:
+      tags:
+        - CRUD
+      description: Auto generated using Swagger Inspector
+      parameters:
+        - name: ap_mac
+          in: path
+          description: token to be passed as a header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                has_licence:
+                  type: boolean
+                haslicence:
+                  type: boolean
+            examples:
+              '0':
+                value: '{"has_licence": true}'
+      responses:
+        '201':
+          description: Auto generated using Swagger Inspector
+        '400':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+              examples:
+                '0':
+                  value: >
+                    {"message":"Uno de los atributos no es
+                    correcto","success":false}
+    delete:
+      tags:
+        - CRUD
+      description: Auto generated using Swagger Inspector
+      parameters:
+        - name: ap_mac
+          in: path
+          description: token to be passed as a header
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Auto generated using Swagger Inspector
+    get:
+      tags:
+        - CRUD
+      parameters:
+        - name: ap_mac
+          in: path
+          required: true
+          schema:
+            type: string
+      description: Auto generated using Swagger Inspector
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ap_mac:
+                    type: string
+                  location_name:
+                    type: string
+                  has_licence:
+                    type: boolean
+              examples:
+                '0':
+                  value: >
+                    {"ap_mac":"fd:ff:ff:ff:ff:ff","has_licence":false,"location_name":"San
+                    Josefa"}
+                    
+        '404':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+              examples:
+                '0':
+                  value: |
+                    {"message":"ap does not exist","success":false}
+  /aps:
+    get:
+      tags:
+        - CRUD
+      description: Auto generated using Swagger Inspector
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                '0':
+                  value: >
+                    [{"ap_mac":"fd:ff:ff:ff:ff:ff","has_licence":false,"location_name":"San
+                    Josefa"}]
+    post:
+      tags:
+        - CRUD
+      description: Auto generated using Swagger Inspector
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ap_mac:
+                  type: string
+                location_name:
+                  type: string
+            examples:
+              '0':
+                value: |-
+                  {
+                      "ap_mac":"ff:ff:ff:ff:ff:fa",
+                      "location_name":"un Lugar"
+                  }
+      responses:
+        '400':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+              examples:
+                '0':
+                  value: |
+                    {"message":"Field has_licence is missing!","success":false}
+
+  /auth/token_login:
+    post:
+      tags:
+        - Autenticacion
+      description: Auto generated using Swagger Inspector
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                username:
+                  type: string
+            examples:
+              '0':
+                value: |-
+                  {
+                      "username":"example_user"
+                  }
+              '1':
+                value: |-
+                  {
+                      "username":"example_user",
+                      "password":"1234567."
+                  }
+              '2':
+                value: |-
+                  {
+                      "username":"example_user",
+                      "password":"1234567."
+                  }
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  refresh_token:
+                    type: string
+              examples:
+                '0':
+                  value: >
+                    {"access_token":"sdasda"}
+        '400':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+              examples:
+                '0':
+                  value: |
+                    {"message":"Field password is missing!","success":false}
+                '1':
+                  value: |
+                    {"message":"Error en username/password","success":false}
+  /auth/token_verify:
+    get:
+      tags:
+        - Autenticacion
+      description: Auto generated using Swagger Inspector
+      parameters:
+        - name: token
+          in: header
+          schema:
+            type: string
+          example: sadsad
+      responses:
+        '500':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+              examples:
+                '0':
+                  value: >
+                    {"message":"Error with deserialaizing the
+                    token","success":false}
+  /auth/token_refresh:
+    post:
+      tags:
+        - Autenticacion
+      description: Auto generated using Swagger Inspector
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                refresh_token:
+                  type: string
+                refreh_token:
+                  type: string
+            examples:
+              '0':
+                value: |-
+                  {
+                      "refresh_token": "asdasdad"
+                  }
+              '1':
+                value: |-
+                  {
+                      "refreh_token": "asdasdasdw"
+                  }
+              '2':
+                value: |-
+                  {
+                      "refresh_token": "asdasdqwdq"
+                  }
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  refresh_token:
+                    type: string
+              examples:
+                '0':
+                  value: >
+                    {"access_token":"qwdwdqwd"}
+        '400':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+              examples:
+                '0':
+                  value: |
+                    {"message":"Error en refresh token","success":false}
+                '1':
+                  value: >
+                    {"message":"Field refresh_token is
+                    missing!","success":false}
